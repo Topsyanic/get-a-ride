@@ -11,44 +11,39 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class DriverHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     DrawerLayout drawerLayout;
-    static String  username;
-   static String userEmail;
-   static String userId;
-
+    String  username;
+    String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-        Toolbar toolbar = findViewById(R.id.nav_toolbar);
+        setContentView(R.layout.activity_driver_home);
+        Toolbar toolbar = findViewById(R.id.nav_toolbar_driver);
         setSupportActionBar(toolbar);
         username=getIntent().getExtras().getString("username");
-        userEmail=getIntent().getExtras().getString("email");
-        userId=getIntent().getExtras().getString("userId");
         System.out.println(username);
-        NavigationView navigationView = findViewById(R.id.navigation_view);
+        NavigationView navigationView = findViewById(R.id.navigation_view_driver);
         navigationView.setNavigationItemSelectedListener(this);
         View headerView = navigationView.getHeaderView(0);
         TextView navUsername = (TextView)headerView.findViewById(R.id.username);
         navUsername.setText(username);
-        drawerLayout = findViewById(R.id.drawer_layout);
+        drawerLayout = findViewById(R.id.drawer_layout_driver);
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.nav_drawer_open,R.string.nav_drawer_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new BookingFragment()).commit();
-        if(savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new BookingFragment());
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_driver,new BookingFragment()).commit();
+        if(savedInstanceState == null)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_driver,new BookingFragment());
             navigationView.setCheckedItem(R.id.nav_booking);
 
         }
-
     }
     public void onBackPressed()
     {
@@ -65,9 +60,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId())
         {
-            case R.id.nav_booking:getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new BookingFragment()).commit();
-                break;
-            case R.id.nav_rides:getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new MyBookingsFragment()).commit();
+            case R.id.nav_booking:getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_driver,new BookingFragment()).commit();
                 break;
             case R.id.nav_logout:{
                 FirebaseAuth.getInstance().signOut();

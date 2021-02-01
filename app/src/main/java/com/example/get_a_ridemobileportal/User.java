@@ -1,12 +1,33 @@
 package com.example.get_a_ridemobileportal;
 
 public class User {
-    private String firstName,lastName,email;
+    private String firstName, lastName, email, userRole, status;
+    public User() {
 
-    public User(String firstName, String lastName, String email) {
+    }
+
+    public User(String firstName, String lastName, String email, String userRole, String status) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.userRole = userRole;
+        this.status = status;
+    }
+
+    public String getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getFirstName() {

@@ -5,152 +5,127 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="AssignDriverFragment"
+    tools:context="BookingFragment"
     >
 
-    <EditText
-        android:id="@+id/pickup"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:backgroundTint="@color/black"
-        android:hint="Pick up location"
-        android:textColorHint="#878480"
-        android:textColor="@color/black"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.289"
-        tools:visibility="visible" />
-
-    <EditText
-        android:id="@+id/destination"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:backgroundTint="@color/black"
-        android:hint="Where to?"
-        android:textColor="@color/black"
-        android:textColorHint="#878480"
-
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.438"
-        tools:visibility="visible" />
-
-    <EditText
-        android:id="@+id/phoneNumber"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:backgroundTint="@color/black"
-        android:hint="Phone number"
-        android:inputType="phone"
-        android:textColor="@color/black"
-        android:textColorHint="#878480"
-
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.594"
-        tools:visibility="visible" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/assign_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/black"
-        android:text="Confirm"
+        android:text="Assign"
         app:backgroundTint="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.906" />
+        app:layout_constraintVertical_bias="0.959" />
 
     <TextView
-        android:id="@+id/date_text"
+        android:id="@+id/assign_driver_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pick Date"
+        android:text="Customer Name"
         android:textColor="#090808"
         android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintHorizontal_bias="0.025"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.681" />
+        app:layout_constraintVertical_bias="0.287" />
 
     <TextView
-        android:id="@+id/time_text"
+        android:id="@+id/assign_driver_pickup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pick Time"
+        android:text="Pick up location"
         android:textColor="#090808"
         android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintHorizontal_bias="0.024"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.765" />
+        app:layout_constraintVertical_bias="0.434" />
 
     <TextView
-        android:id="@+id/number_text"
+        android:id="@+id/assign_driver_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter your phone number"
+        android:text="Drop off location"
         android:textColor="#090808"
         android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.379"
+        app:layout_constraintHorizontal_bias="0.025"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.536" />
+        app:layout_constraintVertical_bias="0.512" />
 
     <TextView
-        android:id="@+id/booking_date"
+        android:id="@+id/assign_driver_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select your pick up location:"
+        android:text="Time"
         android:textColor="#090808"
         android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.233" />
+        app:layout_constraintVertical_bias="0.67" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/assign_driver_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select your drop location:"
+        android:text="Phone Number"
         android:textColor="#090808"
         android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintHorizontal_bias="0.024"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.38" />
+        app:layout_constraintVertical_bias="0.362" />
+
+    <TextView
+        android:id="@+id/select_driver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Driver"
+        android:textColor="#090808"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.777" />
+
+    <TextView
+        android:id="@+id/assign_driver_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textColor="#090808"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.589" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Book ride"
+        android:text=" Assign Driver"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -170,29 +145,19 @@
         app:layout_constraintVertical_bias="0.044"
         app:srcCompat="@drawable/taxi" />
 
-    <ImageView
-        android:id="@+id/imageView_calendar"
-        android:layout_width="32dp"
-        android:layout_height="43dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.69"
-        app:srcCompat="@drawable/calendar_22_240px" />
 
-    <ImageView
-        android:id="@+id/imageView_clock"
-        android:layout_width="37dp"
-        android:layout_height="46dp"
+    <Spinner
+        android:id="@+id/driver_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/driverList"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.334"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.776"
-        app:srcCompat="@drawable/sand_clock_240px" />
+        app:layout_constraintVertical_bias="0.831" />
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="?attr/progressBarStyle"

@@ -3,6 +3,7 @@ package com.example.get_a_ridemobileportal;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -97,14 +98,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())//if user is created user in firebase auth
                 {
-                    User user = new User(firstName,lastName,email);
-                    FirebaseDatabase.getInstance().getReference("get-a-ride-44ee4").child(FirebaseAuth.getInstance().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    User user = new User(firstName,lastName,email,"rider","none");
+                    FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful())//if user added to db
                             {
-                                Toast.makeText(RegisterActivity.this,"User registered successfully",Toast.LENGTH_LONG).show();
+                                Toast.makeText(RegisterActivity.this,"Registration Successful",Toast.LENGTH_LONG).show();
                                 progressBar.setVisibility(View.GONE);
+                                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
                             }
                             else// user not added to db
                             {

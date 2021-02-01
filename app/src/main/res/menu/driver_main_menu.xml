@@ -7,7 +7,7 @@
         <item
             android:id="@+id/nav_booking"
             android:icon="@drawable/ic_booking"
-            android:title="Book a ride" />
+            android:title="Bookings" />
 
         <item
             android:id="@+id/nav_profile"
@@ -16,7 +16,7 @@
         <item
             android:id="@+id/nav_rides"
             android:icon="@drawable/ic_rides"
-            android:title="My Bookings" />
+            android:title="Past Rides" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_settings"
@@ -29,13 +29,13 @@
     </group>
     <item android:title="Communication">
         <menu>
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_help"
-            android:icon="@drawable/ic_help"
-            android:title="Get Help" />
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_help"
+                    android:icon="@drawable/ic_help"
+                    android:title="Get Help" />
 
-    </group>
+            </group>
         </menu>>
     </item>
 

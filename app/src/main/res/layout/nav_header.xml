@@ -16,12 +16,14 @@
         android:src="@drawable/avatar"></ImageView>
 
     <TextView
+        android:id="@+id/username"
         android:layout_width="138dp"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:text="User"
         android:textAlignment="center"
-        android:textColor="#FDFDFD">
+        android:textColor="#FDFDFD"
+        android:gravity="center_horizontal">
 
     </TextView>
 
