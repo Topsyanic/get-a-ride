@@ -1,7 +1,7 @@
 package com.example.get_a_ridemobileportal;
 
 public class Booking {
-    String pickup,destination,date,time,phoneNumber,customerEmail,driverEmail,charge,status,customerName;
+    String pickup,destination,date,time,phoneNumber,customerEmail,driverEmail,charge,status,customerName,id;
 
     public Booking() {
     }
@@ -17,6 +17,27 @@ public class Booking {
         this.charge = charge;
         this.status=status;
         this.customerName=customerName;
+    }
+    public Booking(String id,String pickup, String destination, String date, String time, String phoneNumber, String customerEmail, String driverEmail, String charge,String status,String customerName) {
+        this.pickup = pickup;
+        this.destination = destination;
+        this.date = date;
+        this.time = time;
+        this.phoneNumber = phoneNumber;
+        this.customerEmail = customerEmail;
+        this.driverEmail = driverEmail;
+        this.charge = charge;
+        this.status=status;
+        this.customerName=customerName;
+        this.id=id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getCustomerName() {

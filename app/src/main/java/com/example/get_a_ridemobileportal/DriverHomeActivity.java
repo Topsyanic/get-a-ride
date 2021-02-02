@@ -18,8 +18,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class DriverHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     DrawerLayout drawerLayout;
-    String  username;
-    String email;
+    static String  username;
+    static String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,10 +37,10 @@ public class DriverHomeActivity extends AppCompatActivity implements NavigationV
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.nav_drawer_open,R.string.nav_drawer_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_driver,new BookingFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_driver,new DriverMyBookingsFragment()).commit();
         if(savedInstanceState == null)
         {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_driver,new BookingFragment());
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_driver,new DriverMyBookingsFragment());
             navigationView.setCheckedItem(R.id.nav_booking);
 
         }
@@ -60,7 +60,7 @@ public class DriverHomeActivity extends AppCompatActivity implements NavigationV
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId())
         {
-            case R.id.nav_booking:getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_driver,new BookingFragment()).commit();
+            case R.id.nav_booking:getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer_driver,new DriverMyBookingsFragment()).commit();
                 break;
             case R.id.nav_logout:{
                 FirebaseAuth.getInstance().signOut();

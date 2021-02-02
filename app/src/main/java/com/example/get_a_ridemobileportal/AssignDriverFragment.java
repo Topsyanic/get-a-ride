@@ -24,8 +24,9 @@ public class AssignDriverFragment extends AppCompatActivity  {
 TextView name,phone,location,date,time,pickup;
 Button assignBtn;
 Spinner spinner;
-String customerName,customerPhone,customerLocation,customerDate,customerTime,driver,customerPickup,customerEmail;
+String customerName,customerPhone,customerLocation,customerDate,customerTime,driver,customerPickup,customerEmail,bookingId;
 DatabaseReference reference;
+DatabaseReference reference2;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,28 +47,30 @@ DatabaseReference reference;
         customerTime = intent.getStringExtra("customerTime");
         customerPickup = intent.getStringExtra("customerPickup");
         customerEmail = intent.getStringExtra("customerEmail");
-        name.setText("Customer Name : " + customerName);
-        phone.setText("Phone Number : " + customerPhone);
-        location.setText("Drop off location : " + customerLocation);
-        date.setText("Date : " + customerDate);
-        time.setText("Time : " + customerTime);
-        pickup.setText("Pick up location : " + customerPickup);
-        driver=spinner.getSelectedItem().toString();
+        bookingId=intent.getStringExtra("bookingId");
+        name.setText(customerName);
+        phone.setText(customerPhone);
+        location.setText( customerLocation);
+        date.setText(customerDate);
+        time.setText( customerTime);
+        pickup.setText(customerPickup);
+        driver=spinner.getSelectedItem().toString().trim();
 
 
 
         assignBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(driver.equalsIgnoreCase("John Taitor")){
-                    reference= FirebaseDatabase.getInstance().getReference("DriverBookings").child("johntaitor");
+                    reference= FirebaseDatabase.getInstance().getReference("DriverBookings").child(driver);
+                    reference2= FirebaseDatabase.getInstance().getReference("AssignBookings").child(bookingId);
                     String id = reference.push().getKey();
-                    Booking booking = new  Booking(customerPickup, customerLocation, customerDate, customerTime, customerPhone, customerEmail, "johntaitor@email.com", "unavailable","Confirmed",customerName);
+                    Booking booking = new  Booking(customerPickup, customerLocation, customerDate, customerTime, customerPhone, customerEmail, driver.toLowerCase().replaceAll(" ", "")+"@email.com", "unavailable","Confirmed",customerName);
                     reference.child(id).setValue(booking).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful())//if user added to db
                             {
+                                reference2.removeValue();
                                 Toast.makeText(v.getContext(),"Successfully assigned",Toast.LENGTH_LONG).show();
                             }
                             else// user not added to db
@@ -77,9 +80,6 @@ DatabaseReference reference;
                         }
 
                     });
-
-                }
-
             }
         });
     }

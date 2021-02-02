@@ -8,24 +8,12 @@
     android:orientation="vertical">
 
     <Space
-        android:id="@+id/space"
         android:layout_width="wrap_content"
         android:layout_height="180dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/cardView" />
-
-    <TextView
-        android:id="@+id/emptyText"
-        android:layout_width="138dp"
-        android:layout_height="26dp"
-        android:text="No pending bookings"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -49,7 +37,7 @@
 
 
             <TextView
-                android:id="@+id/assign_booking_name"
+                android:id="@+id/driver_booking_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
@@ -63,7 +51,7 @@
                 app:layout_constraintVertical_bias="0.048" />
 
             <TextView
-                android:id="@+id/assign_booking_destination"
+                android:id="@+id/driver_booking_destination"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
@@ -78,7 +66,7 @@
                 app:layout_constraintVertical_bias="0.337" />
 
             <TextView
-                android:id="@+id/assign_booking_date"
+                android:id="@+id/driver_booking_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
@@ -93,7 +81,7 @@
                 app:layout_constraintVertical_bias="0.606" />
 
             <TextView
-                android:id="@+id/assign_booking_time"
+                android:id="@+id/driver_booking_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
@@ -108,7 +96,7 @@
                 app:layout_constraintVertical_bias="0.889" />
 
             <TextView
-                android:id="@+id/assign_booking_status"
+                android:id="@+id/driver_booking_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"

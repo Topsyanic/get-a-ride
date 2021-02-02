@@ -33,6 +33,7 @@ public class AssignBookingFragment extends Fragment {
     DatabaseReference reference;
     RecyclerView assignBookingList;
     List<Booking> bookingList;
+    TextView emptyText;
 
     @Override
 
@@ -41,6 +42,7 @@ public class AssignBookingFragment extends Fragment {
        assignBookingList=(RecyclerView)v.findViewById(R.id.assignBookings_list);
         assignBookingList.setLayoutManager(new LinearLayoutManager(getContext()));
         reference= FirebaseDatabase.getInstance().getReference().child("AssignBookings");
+        emptyText=v.findViewById(R.id.emptyText);
         bookingList = new ArrayList<Booking>();
 
         return v;
@@ -100,10 +102,9 @@ public class AssignBookingFragment extends Fragment {
                 return viewHolder;
             }
         };
+
         assignBookingList.setAdapter(adapter);
         adapter.startListening();
-        RecyclerView.ItemDecoration divider = new DividerItemDecoration(getContext(),DividerItemDecoration.HORIZONTAL);
-        assignBookingList.addItemDecoration(divider);
     }
     public class AssignBookingViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
@@ -123,7 +124,6 @@ public class AssignBookingFragment extends Fragment {
         @Override
         public void onClick(View v) {
             int position = getAdapterPosition();
-            Toast.makeText(getContext(),"position"+position,Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getContext(),AssignDriverFragment.class);
             intent.putExtra("customerName",bookingList.get(position).getCustomerName());
             intent.putExtra("customerPhone",bookingList.get(position).getPhoneNumber());
@@ -132,7 +132,7 @@ public class AssignBookingFragment extends Fragment {
             intent.putExtra("customerTime",bookingList.get(position).getTime());
             intent.putExtra("customerPickup",bookingList.get(position).getPickup());
             intent.putExtra("customerEmail",bookingList.get(position).getCustomerEmail());
-
+            intent.putExtra("bookingId",bookingList.get(position).getId());
             getContext().startActivity(intent);
 
         }

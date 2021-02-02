@@ -73,6 +73,7 @@ public class BookingFragment extends Fragment {
                 reference2=FirebaseDatabase.getInstance().getReference("AssignBookings");
                 Booking booking = new Booking(pickup.getText().toString(),destination.getText().toString(),date.getText().toString(),timeText.getText().toString(),phone.getText().toString(),HomeActivity.userEmail,"none","none","Pending",HomeActivity.username);
                 String id = reference.push().getKey();
+                booking.setId(id);
                 reference.child(id).setValue(booking).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
