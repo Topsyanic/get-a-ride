@@ -5,18 +5,87 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
+
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="88dp"
         android:layout_height="82dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.121"
+        app:layout_constraintVertical_bias="0.024"
         app:srcCompat="@drawable/taxi" />
 
+    <TextView
+        android:id="@+id/registerLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textColor="#000"
+        android:textSize="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.135" />
+
+    <EditText
+        android:id="@+id/lastNameText"
+        android:layout_width="266dp"
+        android:layout_height="47dp"
+        android:backgroundTint="@color/black"
+        android:hint="Last Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.441"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.415" />
+
+    <EditText
+        android:id="@+id/passwordText"
+        android:layout_width="266dp"
+        android:layout_height="47dp"
+        android:backgroundTint="@color/black"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.441"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.666" />
+
+    <EditText
+        android:id="@+id/passwordText2"
+        android:layout_width="266dp"
+        android:layout_height="47dp"
+        android:backgroundTint="@color/black"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.441"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.798" />
+
+    <EditText
+        android:id="@+id/emailText"
+        android:layout_width="266dp"
+        android:layout_height="47dp"
+        android:backgroundTint="@color/black"
+        android:hint="E-mail Address"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.441"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.546" />
 
     <EditText
         android:id="@+id/firstNameText"
@@ -26,50 +95,11 @@
         android:hint="First Name"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.441"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.388" />
-
-    <EditText
-        android:id="@+id/emailText"
-        android:layout_width="266dp"
-        android:layout_height="47dp"
-        android:backgroundTint="@color/black"
-        android:hint="E-mail Address"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.637" />
-
-    <EditText
-        android:id="@+id/passwordText"
-        android:layout_width="266dp"
-        android:layout_height="47dp"
-        android:backgroundTint="@color/black"
-        android:hint="Password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.779" />
-
-    <EditText
-        android:id="@+id/lastNameText"
-        android:layout_width="266dp"
-        android:layout_height="47dp"
-        android:backgroundTint="@color/black"
-        android:hint="Last Name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.505" />
+        app:layout_constraintVertical_bias="0.298" />
 
 
     <Button
@@ -84,19 +114,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.923" />
-
-    <TextView
-        android:id="@+id/registerLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:textColor="#000"
-        android:textSize="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.228" />
 
     <ProgressBar
         android:id="@+id/progressBar"

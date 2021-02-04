@@ -38,62 +38,69 @@
 
             <TextView
                 android:id="@+id/driver_booking_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="324dp"
+                android:layout_height="26dp"
                 android:paddingLeft="5dp"
                 android:text="Name"
                 android:textColor="@color/white"
                 android:textSize="24dp"
+                android:textAlignment="center"
+                android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.048" />
+                app:layout_constraintVertical_bias="0.041" />
 
             <TextView
                 android:id="@+id/driver_booking_destination"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="291dp"
+                android:layout_height="53dp"
                 android:paddingLeft="5dp"
                 android:text="Destination"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.46"
+                app:layout_constraintHorizontal_bias="0.906"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.337" />
+                app:layout_constraintVertical_bias="0.335" />
 
             <TextView
                 android:id="@+id/driver_booking_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="99dp"
+                android:layout_height="23dp"
                 android:paddingLeft="5dp"
                 android:text="Date"
+                android:textAlignment="center"
+                android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.387"
+                app:layout_constraintHorizontal_bias="0.238"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.606" />
+                app:layout_constraintVertical_bias="0.664" />
 
             <TextView
                 android:id="@+id/driver_booking_time"
-                android:layout_width="wrap_content"
+                android:layout_width="99dp"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
                 android:text="Time"
                 android:textColor="@color/white"
                 android:textSize="18dp"
+                android:textAlignment="center"
+                android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.39"
+                app:layout_constraintHorizontal_bias="0.885"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.889" />
+                app:layout_constraintVertical_bias="0.668" />
 
             <TextView
                 android:id="@+id/driver_booking_status"
@@ -105,7 +112,7 @@
                 android:textSize="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.78"
+                app:layout_constraintHorizontal_bias="0.449"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.889" />
@@ -116,10 +123,10 @@
                 android:layout_height="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.045"
+                app:layout_constraintHorizontal_bias="0.022"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.337"
+                app:layout_constraintVertical_bias="0.303"
                 app:srcCompat="@drawable/flag_filled_52px" />
 
             <ImageView
@@ -128,10 +135,10 @@
                 android:layout_height="25dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.045"
+                app:layout_constraintHorizontal_bias="0.051"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.611"
+                app:layout_constraintVertical_bias="0.673"
                 app:srcCompat="@drawable/calendar_30_52px" />
 
             <ImageView
@@ -140,10 +147,10 @@
                 android:layout_height="26dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.052"
+                app:layout_constraintHorizontal_bias="0.553"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.902"
+                app:layout_constraintVertical_bias="0.664"
                 app:srcCompat="@drawable/clock_64px" />
 
 

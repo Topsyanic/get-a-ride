@@ -50,8 +50,10 @@
 
             <TextView
                 android:id="@+id/assign_booking_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="324dp"
+                android:layout_height="26dp"
+                android:textAlignment="center"
+                android:gravity="center"
                 android:paddingLeft="5dp"
                 android:text="Name"
                 android:textColor="@color/white"
@@ -64,48 +66,52 @@
 
             <TextView
                 android:id="@+id/assign_booking_destination"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="278dp"
+                android:layout_height="54dp"
                 android:paddingLeft="5dp"
                 android:text="Destination"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.46"
+                app:layout_constraintHorizontal_bias="0.91"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.337" />
+                app:layout_constraintVertical_bias="0.365" />
 
             <TextView
                 android:id="@+id/assign_booking_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="89dp"
+                android:layout_height="21dp"
+                android:gravity="center"
                 android:paddingLeft="5dp"
                 android:text="Date"
+                android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.387"
+                app:layout_constraintHorizontal_bias="0.301"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.606" />
+                app:layout_constraintVertical_bias="0.724" />
 
             <TextView
                 android:id="@+id/assign_booking_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="89dp"
+                android:layout_height="21dp"
+                android:gravity="center"
                 android:paddingLeft="5dp"
                 android:text="Time"
+                android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.39"
+                app:layout_constraintHorizontal_bias="0.934"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.889" />
+                app:layout_constraintVertical_bias="0.729" />
 
             <TextView
                 android:id="@+id/assign_booking_status"
@@ -117,10 +123,10 @@
                 android:textSize="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.78"
+                app:layout_constraintHorizontal_bias="0.467"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.889" />
+                app:layout_constraintVertical_bias="0.951" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -128,10 +134,10 @@
                 android:layout_height="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.045"
+                app:layout_constraintHorizontal_bias="0.051"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.337"
+                app:layout_constraintVertical_bias="0.289"
                 app:srcCompat="@drawable/flag_filled_52px" />
 
             <ImageView
@@ -140,10 +146,10 @@
                 android:layout_height="25dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.045"
+                app:layout_constraintHorizontal_bias="0.129"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.611"
+                app:layout_constraintVertical_bias="0.75"
                 app:srcCompat="@drawable/calendar_30_52px" />
 
             <ImageView
@@ -152,10 +158,10 @@
                 android:layout_height="26dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.052"
+                app:layout_constraintHorizontal_bias="0.631"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.902"
+                app:layout_constraintVertical_bias="0.755"
                 app:srcCompat="@drawable/clock_64px" />
 
 

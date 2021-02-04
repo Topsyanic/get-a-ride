@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.get_a_ridemobileportal.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -19,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextView firstNameText,lastNameText,emailText,passwordText;
+    private TextView firstNameText,lastNameText,emailText,passwordText,confirmPasswordText;
     private ProgressBar progressBar;
     private Button registerBtn;
     private FirebaseAuth mAuth;
@@ -33,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         lastNameText=findViewById(R.id.lastNameText);
         emailText=findViewById(R.id.emailText);
         passwordText=findViewById(R.id.passwordText);
+        confirmPasswordText=findViewById(R.id.passwordText2);
         registerBtn=findViewById(R.id.registerBtn);
         registerBtn.setOnClickListener(this);
         progressBar=findViewById(R.id.progressBar);
@@ -54,6 +56,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String lastName = lastNameText.getText().toString().trim();
         String email=emailText.getText().toString().trim();
         String password=passwordText.getText().toString().trim();
+        String confirmPassword = confirmPasswordText.getText().toString().trim();
 
         if(firstName.isEmpty())
         {
@@ -79,6 +82,18 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             passwordText.requestFocus();
             return;
         }
+        if(password.isEmpty())
+        {
+            passwordText.setError("Password cannot be blank");
+            passwordText.requestFocus();
+            return;
+        }
+        if(confirmPassword.isEmpty())
+        {
+            confirmPasswordText.setError("Confirm Password cannot be blank");
+            confirmPasswordText.requestFocus();
+            return;
+        }
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
         {
             emailText.setError("Please provide  a valid email address");
@@ -92,6 +107,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
 
         }
+        if(!password.equalsIgnoreCase(confirmPassword))
+        {
+            confirmPasswordText.setError("Password is not matching");
+            confirmPasswordText.requestFocus();
+            return;
+
+        }
         progressBar.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -99,7 +121,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 if(task.isSuccessful())//if user is created user in firebase auth
                 {
                     User user = new User(firstName,lastName,email,"rider","none");
-                    FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    FirebaseDatabase.getInstance().getReference("Drivers").child(/*FirebaseAuth.getInstance().getUid()*/"VWYinqmVNJTDOTWkTpdDEE49vFw2").setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful())//if user added to db

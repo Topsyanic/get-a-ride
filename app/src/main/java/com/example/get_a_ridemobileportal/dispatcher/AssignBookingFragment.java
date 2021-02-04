@@ -1,4 +1,4 @@
-package com.example.get_a_ridemobileportal;
+package com.example.get_a_ridemobileportal.dispatcher;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,16 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.get_a_ridemobileportal.models.Booking;
+import com.example.get_a_ridemobileportal.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
@@ -124,7 +124,7 @@ public class AssignBookingFragment extends Fragment {
         @Override
         public void onClick(View v) {
             int position = getAdapterPosition();
-            Intent intent = new Intent(getContext(),AssignDriverFragment.class);
+            Intent intent = new Intent(getContext(), AssignDriverFragment.class);
             intent.putExtra("customerName",bookingList.get(position).getCustomerName());
             intent.putExtra("customerPhone",bookingList.get(position).getPhoneNumber());
             intent.putExtra("customerDestination",bookingList.get(position).getDestination());

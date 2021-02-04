@@ -1,4 +1,4 @@
-package com.example.get_a_ridemobileportal;
+package com.example.get_a_ridemobileportal.rider;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -19,18 +19,26 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.get_a_ridemobileportal.models.Booking;
+import com.example.get_a_ridemobileportal.R;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.AutocompleteActivity;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.w3c.dom.Text;
-
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 import java.util.TimeZone;
-import java.util.concurrent.TimeUnit;
+
+import static android.app.Activity.RESULT_OK;
 
 public class BookingFragment extends Fragment {
     TextView date;
@@ -42,6 +50,9 @@ public class BookingFragment extends Fragment {
     ProgressBar progressBar;
     DatabaseReference reference;
     DatabaseReference reference2;
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -53,6 +64,27 @@ public class BookingFragment extends Fragment {
         destination = v.findViewById(R.id.destination);
         phone=v.findViewById(R.id.phoneNumber);
         progressBar=v.findViewById(R.id.progressBar);
+        Places.initialize(getContext(),"AIzaSyCPXc7ipAr0mlA7LgMGni5oN1TuYmfar5A");
+
+        pickup.setFocusable(false);
+        pickup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                List<Place.Field> fieldList = Arrays.asList(Place.Field.ADDRESS,Place.Field.LAT_LNG,Place.Field.NAME);
+                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,fieldList).build(getContext());
+                startActivityForResult(intent,100);
+            }
+        });
+        destination.setFocusable(false);
+        destination.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                List<Place.Field> fieldList = Arrays.asList(Place.Field.ADDRESS,Place.Field.LAT_LNG,Place.Field.NAME);
+                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,fieldList).build(getContext());
+                startActivityForResult(intent,50);
+            }
+        });
+
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +100,57 @@ public class BookingFragment extends Fragment {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String checkDate=date.getText().toString().trim();
+                String checkTime=timeText.getText().toString().trim();
+                String checkPickup = pickup.getText().toString().trim();
+                String checkDestination = destination.getText().toString().trim();
+                String checkPhone = phone.getText().toString().trim();
+
+                if(checkPickup.isEmpty())
+                {
+                    pickup.setError("Pick up cannot be blank");
+                    pickup.requestFocus();
+                    return;
+                }
+                if(checkDestination.isEmpty())
+                {
+                    destination.setError("Destination cannot be blank");
+                    destination.requestFocus();
+                    return;
+                }
+                if(checkPhone.isEmpty())
+                {
+                    phone.setError("Phone cannot be blank");
+                    phone.requestFocus();
+                    return;
+                }
+                if(checkPhone.length()<10)
+                {
+                    phone.setError("Length is to short");
+                    phone.requestFocus();
+                    return;
+                }
+                int number1 = checkPhone.charAt(0);
+                if(number1 != 0  )
+                {
+                    phone.setError("Number must begin with a 0");
+                    phone.requestFocus();
+                    return;
+                }
+                if(checkDate.equalsIgnoreCase("Pick Date"))
+                {
+                    date.setError("Date cannot be blank");
+                    date.requestFocus();
+                    return;
+                }
+                if(checkTime.equalsIgnoreCase("Pick Time"))
+                {
+                    timeText.setError("Time cannot be blank");
+                    timeText.requestFocus();
+                    return;
+                }
+
+
 
                 reference=FirebaseDatabase.getInstance().getReference("Bookings").child(HomeActivity.userId);
                 reference2=FirebaseDatabase.getInstance().getReference("AssignBookings");
@@ -127,6 +210,23 @@ public class BookingFragment extends Fragment {
 
         return v;
     }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==100 && resultCode == RESULT_OK){
+            Place place = Autocomplete.getPlaceFromIntent(data);
+            pickup.setText(place.getAddress());
+        }
+        else if(requestCode==50 && resultCode == RESULT_OK){
+            Place place = Autocomplete.getPlaceFromIntent(data);
+            destination.setText(place.getAddress());
+        }
+        else if(resultCode == AutocompleteActivity.RESULT_ERROR){
+            Status status = Autocomplete.getStatusFromIntent(data);
+            Toast.makeText(getContext(),status.getStatusMessage(),Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {

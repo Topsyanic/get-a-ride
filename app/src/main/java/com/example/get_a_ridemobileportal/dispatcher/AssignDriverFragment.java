@@ -1,10 +1,8 @@
-package com.example.get_a_ridemobileportal;
+package com.example.get_a_ridemobileportal.dispatcher;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -13,8 +11,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
+import com.example.get_a_ridemobileportal.models.Booking;
+import com.example.get_a_ridemobileportal.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
@@ -38,7 +37,6 @@ DatabaseReference reference2;
         time = findViewById(R.id.assign_driver_time);
         assignBtn = findViewById(R.id.assign_button);
         spinner = findViewById(R.id.driver_spinner);
-        pickup=findViewById(R.id.assign_driver_pickup);
         Intent intent = getIntent();
         customerName = intent.getStringExtra("customerName");
         customerPhone = intent.getStringExtra("customerPhone");
@@ -53,7 +51,6 @@ DatabaseReference reference2;
         location.setText( customerLocation);
         date.setText(customerDate);
         time.setText( customerTime);
-        pickup.setText(customerPickup);
         driver=spinner.getSelectedItem().toString().trim();
 
 
@@ -63,9 +60,8 @@ DatabaseReference reference2;
             public void onClick(View v) {
                     reference= FirebaseDatabase.getInstance().getReference("DriverBookings").child(driver);
                     reference2= FirebaseDatabase.getInstance().getReference("AssignBookings").child(bookingId);
-                    String id = reference.push().getKey();
-                    Booking booking = new  Booking(customerPickup, customerLocation, customerDate, customerTime, customerPhone, customerEmail, driver.toLowerCase().replaceAll(" ", "")+"@email.com", "unavailable","Confirmed",customerName);
-                    reference.child(id).setValue(booking).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    Booking booking = new  Booking(bookingId,customerPickup, customerLocation, customerDate, customerTime, customerPhone, customerEmail, driver.toLowerCase().replaceAll(" ", "")+"@email.com", "unavailable","Confirmed",customerName);
+                    reference.child(bookingId).setValue(booking).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful())//if user added to db

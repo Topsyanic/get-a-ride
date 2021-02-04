@@ -1,4 +1,4 @@
-package com.example.get_a_ridemobileportal;
+package com.example.get_a_ridemobileportal.models;
 
 public class Booking {
     String pickup,destination,date,time,phoneNumber,customerEmail,driverEmail,charge,status,customerName,id;

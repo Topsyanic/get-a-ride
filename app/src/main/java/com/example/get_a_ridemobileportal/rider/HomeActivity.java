@@ -1,4 +1,4 @@
-package com.example.get_a_ridemobileportal;
+package com.example.get_a_ridemobileportal.rider;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -11,9 +11,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.get_a_ridemobileportal.LoginActivity;
+import com.example.get_a_ridemobileportal.R;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -42,9 +43,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.nav_drawer_open,R.string.nav_drawer_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new BookingFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new RiderMenuFragment()).commit();
         if(savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new BookingFragment());
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new RiderMenuFragment());
             navigationView.setCheckedItem(R.id.nav_booking);
 
         }
@@ -69,11 +70,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_rides:getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new MyBookingsFragment()).commit();
                 break;
+            case R.id.nav_home:getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new RiderMenuFragment()).commit();
+                break;
             case R.id.nav_logout:{
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(this,LoginActivity.class);
+                Intent intent = new Intent(this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+                finish();
                 break;
             }
 

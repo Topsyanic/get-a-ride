@@ -14,10 +14,20 @@
 
         <!-- Customize your theme here. -->
     </style>
+
     <style name="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="Theme.GetARideMobilePortal.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.GetARideMobilePortal.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.GetARideMobilePortal.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>

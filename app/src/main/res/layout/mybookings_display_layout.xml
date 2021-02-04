@@ -37,45 +37,49 @@
 
             <TextView
                 android:id="@+id/booking_destination"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="318dp"
+                android:layout_height="51dp"
                 android:paddingLeft="5dp"
                 android:text="Destination"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.475"
+                app:layout_constraintHorizontal_bias="0.86"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.11" />
+                app:layout_constraintVertical_bias="0.114" />
 
             <TextView
                 android:id="@+id/booking_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="238dp"
+                android:layout_height="23dp"
+                android:gravity="center"
                 android:paddingLeft="5dp"
                 android:text="Date"
+                android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.399"
+                app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.496" />
+                app:layout_constraintVertical_bias="0.506" />
 
             <TextView
                 android:id="@+id/booking_time"
-                android:layout_width="wrap_content"
+                android:layout_width="238dp"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
                 android:text="Time"
+                android:textAlignment="center"
+                android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.403"
+                app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.875" />

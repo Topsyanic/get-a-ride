@@ -13,6 +13,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.get_a_ridemobileportal.dispatcher.DispatcherHomeActivity;
+import com.example.get_a_ridemobileportal.driver.DriverHomeActivity;
+import com.example.get_a_ridemobileportal.models.User;
+import com.example.get_a_ridemobileportal.rider.HomeActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -100,6 +104,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                    final String[] userRole = new String[1];
                    final String[] username = new String[1];
                    final String[] dbEmail = new String[1];
+                   final String[] dbId = new String[1];
                    DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users");
                    reference.addValueEventListener(new ValueEventListener() {
                        @Override
@@ -112,6 +117,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                    userRole[0] = user.getUserRole();
                                    username[0] =user.getFirstName()+" "+user.getLastName();
                                    dbEmail[0] =user.getEmail();
+                                   dbId[0]=user.getId();
                                    System.out.println(userRole[0]);
 
                                }
@@ -121,7 +127,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                case "rider":{
                                Toast.makeText(LoginActivity.this,"Logged in Successfully",Toast.LENGTH_LONG).show();
                                progressBar.setVisibility(View.GONE);
-                               Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                               Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                                intent.putExtra("username",username[0]);
                                intent.putExtra("email",dbEmail[0]);
                                intent.putExtra("userId",userId);
@@ -132,9 +138,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                case "driver":{
                                    Toast.makeText(LoginActivity.this,"Logged in Successfully",Toast.LENGTH_LONG).show();
                                    progressBar.setVisibility(View.GONE);
-                                   Intent intent = new Intent(getApplicationContext(),DriverHomeActivity.class);
+                                   Intent intent = new Intent(getApplicationContext(), DriverHomeActivity.class);
                                    intent.putExtra("username",username[0]);
                                    intent.putExtra("email",dbEmail[0]);
+                                   intent.putExtra("id",dbId[0]);
                                    startActivity(intent);
                                    finish();
                                }
@@ -142,7 +149,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                case "dispatcher":{
                                    Toast.makeText(LoginActivity.this,"Logged in Successfully",Toast.LENGTH_LONG).show();
                                    progressBar.setVisibility(View.GONE);
-                                   Intent intent = new Intent(getApplicationContext(),DispatcherHomeActivity.class);
+                                   Intent intent = new Intent(getApplicationContext(), DispatcherHomeActivity.class);
                                    intent.putExtra("username",username[0]);
                                    intent.putExtra("email",dbEmail[0]);
                                    startActivity(intent);
