@@ -121,7 +121,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 if(task.isSuccessful())//if user is created user in firebase auth
                 {
                     User user = new User(firstName,lastName,email,"rider","none");
-                    FirebaseDatabase.getInstance().getReference("Drivers").child(/*FirebaseAuth.getInstance().getUid()*/"VWYinqmVNJTDOTWkTpdDEE49vFw2").setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful())//if user added to db

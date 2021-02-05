@@ -12,8 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.get_a_ridemobileportal.R;
-import com.example.get_a_ridemobileportal.driver.DriverHomeActivity;
-import com.example.get_a_ridemobileportal.driver.DriverMyBookingsFragment;
 
 public class DispatcherMenuFragment extends Fragment {
     View v;

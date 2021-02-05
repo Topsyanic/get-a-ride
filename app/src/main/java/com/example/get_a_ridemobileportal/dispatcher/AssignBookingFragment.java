@@ -109,7 +109,6 @@ public class AssignBookingFragment extends Fragment {
     public class AssignBookingViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         TextView assignDestination,assignDate,assignTime,assignStatus,assignName;
-        ConstraintLayout parentLayout;
 
         public AssignBookingViewHolder(@NonNull View itemView) {
             super(itemView);

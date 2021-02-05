@@ -130,8 +130,8 @@ public class BookingFragment extends Fragment {
                     phone.requestFocus();
                     return;
                 }
-                int number1 = checkPhone.charAt(0);
-                if(number1 != 0  )
+                int firstNumber = Character.getNumericValue(checkPhone.charAt(0));
+                if(firstNumber != 0  )
                 {
                     phone.setError("Number must begin with a 0");
                     phone.requestFocus();

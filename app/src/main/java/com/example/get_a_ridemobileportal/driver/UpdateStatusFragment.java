@@ -43,7 +43,7 @@ DatabaseReference reference;
                 reference.child(DriverHomeActivity.userId).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
                     @Override
                     public void onSuccess(Object o) {
-                        Toast.makeText(v.getContext(),"Status Update Successfully",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(),"Status Updated Successfully",Toast.LENGTH_SHORT).show();
 
                     }
                 });

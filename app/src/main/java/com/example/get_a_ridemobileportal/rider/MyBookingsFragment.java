@@ -93,7 +93,7 @@ public class MyBookingsFragment extends Fragment {
     }
     public static class BookingViewHolder extends RecyclerView.ViewHolder
     {
-        TextView myDestination,myDate,myTime,myStatus;
+        TextView myDestination,myDate,myTime;
 
         public BookingViewHolder(@NonNull View itemView) {
             super(itemView);

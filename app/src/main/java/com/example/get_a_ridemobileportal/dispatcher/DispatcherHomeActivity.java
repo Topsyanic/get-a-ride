@@ -22,7 +22,6 @@ import com.google.firebase.auth.FirebaseAuth;
 public class DispatcherHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     DrawerLayout drawerLayout;
    static String  username;
-    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
