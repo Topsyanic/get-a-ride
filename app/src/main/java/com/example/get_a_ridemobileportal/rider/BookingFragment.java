@@ -64,7 +64,7 @@ public class BookingFragment extends Fragment {
         destination = v.findViewById(R.id.destination);
         phone=v.findViewById(R.id.phoneNumber);
         progressBar=v.findViewById(R.id.progressBar);
-        Places.initialize(getContext(),"AIzaSyCPXc7ipAr0mlA7LgMGni5oN1TuYmfar5A");
+        Places.initialize(getContext(),"PLACES API KEY HERE");
 
         pickup.setFocusable(false);
         pickup.setOnClickListener(new View.OnClickListener() {
